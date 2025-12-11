@@ -58,3 +58,11 @@ body{
     bottom: 0;
     width: 100%;
 }
+
+
+
+.hero{
+    background-color: #F1F1F1;
+    width: 1920px;
+    height: 512px;
+}
