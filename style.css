@@ -85,3 +85,13 @@ body{
     top: 45%;
     transform: translate(-50%, -50%);
 }
+
+
+
+.categories{
+    background-color: linear-gradient(to bottom, #2E3448, #48506D);
+    color: #ffffff;
+    width: 90%;
+    height: 100px;
+    justify-self: center;
+}
