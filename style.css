@@ -80,4 +80,6 @@ body{
     align-items: center;        /* vertically center text */
     justify-content: center;    /* horizontally center text */
     font-size: 32px;
+    align-self: center;
+    justify-self: center;
 }
