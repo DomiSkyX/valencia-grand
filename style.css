@@ -67,3 +67,17 @@ body{
     width: 100%;
     height: 512px;
 }
+
+.hero-btn{
+    background-color: #2E3448;
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    border-radius: 10px;
+    width: 209px;
+    height: 53px;
+    display: inline-flex;       /* best choice */
+    align-items: center;        /* vertically center text */
+    justify-content: center;    /* horizontally center text */
+    font-size: 32px;
+}
