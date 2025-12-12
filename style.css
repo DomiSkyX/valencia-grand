@@ -126,26 +126,28 @@ body{
     transform: translateX(-50%);
 
     display: flex;
-    flex-direction: column; /* jede Zeile untereinander */
-    gap: 10px;              /* etwas Abstand zwischen Zeilen */
+    flex-direction: column; 
+    align-items: center;      /* <--- WICHTIG: zentriert horizontal */
 
+    gap: 10px;
     padding: 15px;
     margin-top: 150px;
 }
 
 .member {
     display: flex;
-    justify-content: space-between; /* gleichmäßig verteilt */
+    justify-content: space-between;
     align-items: center;
-    
+
     background: rgba(255, 255, 255, 0.1);
     padding: 10px 20px;
     border-radius: 15px;
-    
-    width: 100%; /* füllt Container */
+
+    width: 90%; /* <--- sorgt dafür, dass die Zeile nicht zu breit ist */
+    max-width: 900px; /* optional, für saubere Mitte */
 }
 
 .member div {
-    flex: 1;                /* alle Felder gleich breit */
-    text-align: center;     /* optional: schön zentriert */
+    flex: 1;
+    text-align: center;
 }
