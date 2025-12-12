@@ -130,6 +130,9 @@ body{
     display: flex;                /* neu */
     justify-content: space-between; /* gleichmäßige Abstände */
     align-items: center;           /* vertikal zentriert */
-    padding: 0 20px;               /* etwas Innenabstand */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;               /* etwas Innenabstand */
     margin-top: 150px;
 }
