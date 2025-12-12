@@ -160,10 +160,10 @@ body{
 }
 
 .member-status[data-status="active"] {
-    background-color: #3ecf5b;
+    background-color: #2E482E;
 }
 
 .member-status[data-status="inactive"] {
-    background-color: #e04848;
+    background-color: #482E2E;
 }
 
