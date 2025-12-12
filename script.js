@@ -1,3 +1,4 @@
+// Header und Footer laden
 fetch("components/header.html")
   .then(r => r.text())
   .then(html => document.querySelector("#header").innerHTML = html);
@@ -6,17 +7,10 @@ fetch("components/footer.html")
   .then(r => r.text())
   .then(html => document.querySelector("#footer").innerHTML = html);
 
-document.querySelectorAll('.member-status').forEach(status => {
-    status.addEventListener('click', () => {
-        if (status.dataset.status === "active") {
-            status.dataset.status = "inactive";
-        } else {
-            status.dataset.status = "active";
-        }
-    });
-});
 
-
+// -----------------------------
+// MEMBER → aus Supabase laden
+// -----------------------------
 let { data: members, error } = await supabase
   .from('member-list')
   .select('name, id, rank, status');
@@ -27,7 +21,7 @@ if (error) {
 
 const container = document.querySelector('.member-list');
 
-// alle Member in HTML umwandeln
+// Member in HTML einfügen
 members.forEach(member => {
     const div = document.createElement('div');
     div.classList.add('member');
@@ -40,4 +34,15 @@ members.forEach(member => {
     `;
 
     container.appendChild(div);
+});
+
+
+// -------------------------------------
+// TOGGLE FUNKTION (Event Delegation)
+// -------------------------------------
+document.addEventListener("click", e => {
+    if (e.target.classList.contains("member-status")) {
+        let el = e.target;
+        el.dataset.status = el.dataset.status === "active" ? "inactive" : "active";
+    }
 });
