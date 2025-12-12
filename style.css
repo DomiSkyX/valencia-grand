@@ -144,7 +144,6 @@ body{
     border-radius: 15px;
 
     width: 90%; /* <--- sorgt dafür, dass die Zeile nicht zu breit ist */
-    max-width: 900px; /* optional, für saubere Mitte */
 }
 
 .member div {
