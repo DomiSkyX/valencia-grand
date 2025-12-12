@@ -103,6 +103,7 @@ body{
     justify-content: space-between; /* gleichmäßige Abstände */
     align-items: center;           /* vertikal zentriert */
     padding: 0 20px;               /* etwas Innenabstand */
+    margin-top: 10px;
 }
 
 .category {
