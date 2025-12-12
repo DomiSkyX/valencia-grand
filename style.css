@@ -128,7 +128,6 @@ body{
     transform: translateX(-50%);
 
     display: flex;                /* neu */
-    justify-content: space-between; /* gleichmäßige Abstände */
     align-items: center;           /* vertikal zentriert */
     padding-top: 10px;
     padding-bottom: 10px;
