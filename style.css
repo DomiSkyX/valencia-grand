@@ -115,3 +115,21 @@ body{
     text-decoration: none;
     color: #ffffff;
 }
+
+.member-list{
+    background: linear-gradient(to bottom, #2E3448, #48506D);
+    color: #ffffff;
+    width: 90%;
+    height: auto;
+    border-radius: 30px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;                /* neu */
+    justify-content: space-between; /* gleichmäßige Abstände */
+    align-items: center;           /* vertikal zentriert */
+    padding: 0 20px;               /* etwas Innenabstand */
+    margin-top: 150px;
+}
