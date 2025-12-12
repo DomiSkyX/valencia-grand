@@ -1,3 +1,8 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.es.js';
+
+const supabaseUrl = 'https://YOUR_PROJECT.supabase.co';
+const supabaseKey = 'YOUR_PUBLIC_ANON_KEY';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 
 // -----------------------------
