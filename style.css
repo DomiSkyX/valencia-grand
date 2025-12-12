@@ -116,22 +116,37 @@ body{
     color: #ffffff;
 }
 
-.member-list{
+.member-list {
     background: linear-gradient(to bottom, #2E3448, #48506D);
     color: #ffffff;
     width: 90%;
-    height: auto;
     border-radius: 30px;
 
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 
-    display: flex;                /* neu */
-    align-items: center;           /* vertikal zentriert */
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;               /* etwas Innenabstand */
+    display: flex;
+    flex-direction: column; /* jede Zeile untereinander */
+    gap: 10px;              /* etwas Abstand zwischen Zeilen */
+
+    padding: 15px;
     margin-top: 150px;
+}
+
+.member {
+    display: flex;
+    justify-content: space-between; /* gleichmäßig verteilt */
+    align-items: center;
+    
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 15px;
+    
+    width: 100%; /* füllt Container */
+}
+
+.member div {
+    flex: 1;                /* alle Felder gleich breit */
+    text-align: center;     /* optional: schön zentriert */
 }
