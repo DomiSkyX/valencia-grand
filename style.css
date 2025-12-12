@@ -150,3 +150,20 @@ body{
     flex: 1;
     text-align: center;
 }
+
+.member-status {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.member-status[data-status="active"] {
+    background-color: #3ecf5b;
+}
+
+.member-status[data-status="inactive"] {
+    background-color: #e04848;
+}
+
