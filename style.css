@@ -88,20 +88,22 @@ body{
 
 
 
-.categories{
+.categories {
     background: linear-gradient(to bottom, #2E3448, #48506D);
     color: #ffffff;
     width: 90%;
-    height: 100px;
+    height: 120px;
     border-radius: 30px;
-    justify-content: center;
+
+    display: flex;                /* neu */
+    justify-content: space-between; /* gleichmäßige Abstände */
+    align-items: center;           /* vertikal zentriert */
+    padding: 0 20px;               /* etwas Innenabstand */
 }
 
-.category{
-    display: inline-block;
+.category {
     width: 200px;
     height: 100px;
-    margin: 10px;
     background-color: #7490E9;
     border-radius: 20px;
     text-align: center;
