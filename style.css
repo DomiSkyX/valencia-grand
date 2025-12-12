@@ -117,7 +117,6 @@ body{
 }
 
 .member-list {
-    background: linear-gradient(to bottom, #2E3448, #48506D);
     color: #ffffff;
     width: 90%;
     border-radius: 30px;
@@ -142,6 +141,9 @@ body{
     background: rgba(255, 255, 255, 0.1);
     padding: 10px 20px;
     border-radius: 15px;
+
+    left: 50%;
+    transform: translateX(-50%);
     
     width: 100%; /* füllt Container */
 }
