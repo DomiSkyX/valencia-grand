@@ -1,35 +1,35 @@
-import { createClient } from '@supabase/supabase-js'
-
-// ✅ Initialize Supabase ONCE
 const supabaseUrl = 'https://hhpttjceaekmqejzgpcq.supabase.co'
-const supabaseKey = 'YOUR_PUBLIC_ANON_KEY'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhocHR0amNlYWVrbXFlanpncGNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1NTE3MjYsImV4cCI6MjA4MTEyNzcyNn0.w0sbYO4K5gr1JTNeBtVFqfaU34LaLHeyLT8k-LwRTXE'
 
-// ✅ Load members
+const supabase = window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+)
+
 async function loadMembers() {
-  const { data: members, error } = await supabase
+  const { data, error } = await supabase
     .from('member-list')
     .select('id, name, rank, status')
 
   if (error) {
-    console.error('Supabase error:', error)
+    console.error(error)
     return
   }
 
   const container = document.querySelector('.member-list')
   container.innerHTML = ''
 
-  members.forEach(member => {
+  data.forEach(member => {
     const div = document.createElement('div')
-    div.classList.add('member')
+    div.className = 'member'
 
     div.innerHTML = `
-      <div class="member-name">${member.name}</div>
-      <div class="member-id">${member.id}</div>
-      <div class="member-rank">${member.rank}</div>
+      <div>${member.name}</div>
+      <div>${member.id}</div>
+      <div>${member.rank}</div>
       <div class="member-status"
            data-id="${member.id}"
-           data-status="${member.status.toLowerCase()}">
+           data-status="${member.status}">
       </div>
     `
 
@@ -37,7 +37,6 @@ async function loadMembers() {
   })
 }
 
-// ✅ Toggle + save to Supabase
 document.addEventListener('click', async e => {
   if (!e.target.classList.contains('member-status')) return
 
@@ -45,19 +44,12 @@ document.addEventListener('click', async e => {
   const newStatus =
     e.target.dataset.status === 'active' ? 'inactive' : 'active'
 
-  // Update UI immediately
   e.target.dataset.status = newStatus
 
-  // Persist to Supabase
-  const { error } = await supabase
+  await supabase
     .from('member-list')
     .update({ status: newStatus })
     .eq('id', id)
-
-  if (error) {
-    console.error('Update failed:', error)
-  }
 })
 
-// ✅ Run on load
 loadMembers()
