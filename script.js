@@ -1,47 +1,63 @@
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+import { createClient } from '@supabase/supabase-js'
 
-  // 1️⃣ Initialize Supabase
-  const supabaseUrl = 'https://hhpttjceaekmqejzgpcq.supabase.co';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhocHR0amNlYWVrbXFlanpncGNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1NTE3MjYsImV4cCI6MjA4MTEyNzcyNn0.w0sbYO4K5gr1JTNeBtVFqfaU34LaLHeyLT8k-LwRTXE';
-  const supabase = createClient(supabaseUrl, supabaseKey);
+// ✅ Initialize Supabase ONCE
+const supabaseUrl = 'https://hhpttjceaekmqejzgpcq.supabase.co'
+const supabaseKey = 'YOUR_PUBLIC_ANON_KEY'
+const supabase = createClient(supabaseUrl, supabaseKey)
 
-  // 2️⃣ Async function to load members
-  async function loadMembers() {
-      const { data: members, error } = await supabase
-          .from('member-list')
-          .select('name, id, rank, status');
+// ✅ Load members
+async function loadMembers() {
+  const { data: members, error } = await supabase
+    .from('member-list')
+    .select('id, name, rank, status')
 
-      if (error) {
-          console.error("Supabase error:", error);
-          return;
-      }
-
-      const container = document.querySelector('.member-list');
-
-      members.forEach(member => {
-          const div = document.createElement('div');
-          div.classList.add('member');
-
-          div.innerHTML = `
-              <div class="member-name">${member.name}</div>
-              <div class="member-id">${member.id}</div>
-              <div class="member-rank">${member.rank}</div>
-              <div class="member-status" data-status="${member.status.toLowerCase()}"></div>
-          `;
-
-          container.appendChild(div);
-      });
+  if (error) {
+    console.error('Supabase error:', error)
+    return
   }
 
-  // 3️⃣ Event listener for toggles
-  document.addEventListener("click", e => {
-      if (e.target.classList.contains("member-status")) {
-          e.target.dataset.status =
-              e.target.dataset.status === "active"
-                  ? "inactive"
-                  : "active";
-      }
-  });
+  const container = document.querySelector('.member-list')
+  container.innerHTML = ''
 
-  // 4️⃣ Call the async function
-  loadMembers();
+  members.forEach(member => {
+    const div = document.createElement('div')
+    div.classList.add('member')
+
+    div.innerHTML = `
+      <div class="member-name">${member.name}</div>
+      <div class="member-id">${member.id}</div>
+      <div class="member-rank">${member.rank}</div>
+      <div class="member-status"
+           data-id="${member.id}"
+           data-status="${member.status.toLowerCase()}">
+      </div>
+    `
+
+    container.appendChild(div)
+  })
+}
+
+// ✅ Toggle + save to Supabase
+document.addEventListener('click', async e => {
+  if (!e.target.classList.contains('member-status')) return
+
+  const id = e.target.dataset.id
+  const newStatus =
+    e.target.dataset.status === 'active' ? 'inactive' : 'active'
+
+  // Update UI immediately
+  e.target.dataset.status = newStatus
+
+  // Persist to Supabase
+  const { error } = await supabase
+    .from('member-list')
+    .update({ status: newStatus })
+    .eq('id', id)
+
+  if (error) {
+    console.error('Update failed:', error)
+  }
+})
+
+// ✅ Run on load
+loadMembers()
