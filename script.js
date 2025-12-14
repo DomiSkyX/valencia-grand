@@ -19,7 +19,7 @@ async function loadMembers() {
   console.log('Supabase returned:', data)  // 🔍 add this line
 
 
-  const container = document.querySelector('member-list')
+  const container = document.querySelector('.member-list')
   container.innerHTML = ''
 
   data.forEach(member => {
