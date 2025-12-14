@@ -135,19 +135,21 @@ body{
 }
 
 .member {
-    display: flex;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  align-items: center;
 
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px 20px;
-    border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 15px;
 
-    width: 90%; /* <--- sorgt dafür, dass die Zeile nicht zu breit ist */
+  width: 90%;
 }
 
-.member div {
-    text-align: center;
+.member > div {
+  text-align: center;
 }
+
 
 .member-status {
     width: 25px;
