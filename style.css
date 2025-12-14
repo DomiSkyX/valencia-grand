@@ -134,17 +134,35 @@ body{
     margin-top: 150px;
 }
 
+.categories,
 .member {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr 1fr;
+  grid-template-columns: 3fr 2fr 3fr 1fr; /* 👈 same columns */
   align-items: center;
+  text-align: center;
 
+  width: 90%;
+  margin: 0 auto;
+}
+
+.member {
   background: rgba(255, 255, 255, 0.1);
   padding: 10px 20px;
   border-radius: 15px;
-
-  width: 90%;
+  margin-top: 10px;
 }
+
+.categories {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.categories > div:first-child,
+.member > div:first-child {
+  text-align: left;
+  padding-left: 10px;
+}
+
 
 .member > div {
   text-align: center;
