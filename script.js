@@ -8,15 +8,18 @@ const supabase = window.supabase.createClient(
 
 async function loadMembers() {
   const { data, error } = await supabase
-    .from('member-list')
+    .from('member_list')
     .select('id, name, rank, status')
 
   if (error) {
-    console.error(error)
+    console.error('Supabase error:', error)
     return
   }
 
-  const container = document.querySelector('.member-list')
+  console.log('Supabase returned:', data)  // 🔍 add this line
+
+
+  const container = document.querySelector('member-list')
   container.innerHTML = ''
 
   data.forEach(member => {
