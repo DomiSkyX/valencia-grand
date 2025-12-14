@@ -10,6 +10,7 @@ async function loadMembers() {
   const { data, error } = await supabase
     .from('member_list')
     .select('id, name, rank, status')
+    .order('rank', { ascending: false })
 
   if (error) {
     console.error('Supabase error:', error)
@@ -50,9 +51,9 @@ document.addEventListener('click', async e => {
   e.target.dataset.status = newStatus
 
   await supabase
-    .from('member-list')
+    .from('member_list')
     .update({ status: newStatus })
-    .eq('rank', rank)
+    .eq('id', id)
 })
 
 loadMembers()
