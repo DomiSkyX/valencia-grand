@@ -10,15 +10,25 @@ async function loadMembers() {
   const { data, error } = await supabase
     .from('member_list')
     .select('id, name, rank, status')
-    .order('rank', { ascending: false })
 
   if (error) {
     console.error('Supabase error:', error)
     return
   }
 
-  console.log('Supabase returned:', data)  // 🔍 add this line
+  // ✅ Custom rank order (higher = higher rank)
+  const rankOrder = {
+    Boss: 10,
+    Vize: 9,
+    Einsatzleitung: 7
+  }
 
+  // ✅ Sort by custom rank (descending)
+  data.sort((a, b) => {
+    const rankA = rankOrder[a.rank] ?? 0
+    const rankB = rankOrder[b.rank] ?? 0
+    return rankB - rankA
+  })
 
   const container = document.querySelector('.member-list')
   container.innerHTML = ''
