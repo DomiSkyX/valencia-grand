@@ -164,12 +164,26 @@ body{
 }
 
 
+
+/* Member rows */
+.member > div:last-child {
+    display: flex;
+    align-items: center;      /* vertical center */
+    justify-content: center;  /* horizontal center */
+    padding: 0;               /* remove extra vertical padding */
+}
+
+/* Status dot */
 .member-status {
     width: 25px;
     height: 25px;
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .member-status[data-status="active"] {
@@ -179,4 +193,5 @@ body{
 .member-status[data-status="inactive"] {
     background-color: #482E2E;
 }
+
 
