@@ -98,6 +98,7 @@ body{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    justify-content: space-between;
 
     display: flex;                /* neu */
     align-items: center;           /* vertikal zentriert */
@@ -136,7 +137,7 @@ body{
 .categories,
 .member {
   display: grid;
-  justify-content: space-evenly; /* 👈 same columns */
+  justify-content: space-between; /* 👈 same columns */
   align-items: center;
   text-align: center;
 
