@@ -88,63 +88,81 @@ body{
 
 
 
-/* ================= CATEGORIES ================= */
-
 .categories {
     background: linear-gradient(to bottom, #2E3448, #48506D);
     color: #ffffff;
     width: 90%;
+    height: 120px;
     border-radius: 30px;
-    padding: 0 20px;
-    margin: 10px auto 20px auto;
 
-    display: grid;
-    grid-template-columns: 3fr 2fr 3fr 1fr; /* gleiche Spalten wie .member */
-    align-items: center;
-    text-align: center;
-    font-weight: 600;
+    justify-content: space-between; /* gleichmäßige Abstände */
+    align-items: center;           /* vertikal zentriert */
+    padding: 0 20px;               /* etwas Innenabstand */
+    margin-top: 10px;
 }
 
 .category {
     height: 100px;
-    display: flex;
-    align-items: center;
-    padding-left: 10px; /* erste Spalte linksbündig */
+    text-align: center;
+    line-height: 100px;
     font-size: 24px;
+    text-decoration: none;
+    color: #ffffff;
 }
 
-/* ================= MEMBER LIST ================= */
-
 .member-list {
-    width: 90%;
-    margin: 0 auto;
+    color: #ffffff;
+    width: 100%;
+    border-radius: 30px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    align-items: center;      /* <--- WICHTIG: zentriert horizontal */
+
     gap: 10px;
-    padding: 15px 0;
+    padding: 15px;
+    margin-top: 150px;
+}
+
+.categories,
+.member {
+  display: grid;
+  grid-template-columns: 3fr 2fr 3fr 1fr; /* 👈 same columns */
+  align-items: center;
+  text-align: center;
+
+  width: 90%;
+  margin: 0 auto;
 }
 
 .member {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 3fr 2fr 3fr 1fr; /* gleiche Spalten wie .categories */
-    align-items: center;
-    text-align: center;
-    gap: 0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0;
+  border-radius: 15px;
+  margin-top: 10px;
 }
+
+.categories {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.categories > div:first-child,
+.member > div:first-child {
+  text-align: left;
+  padding-left: 10px;
+}
+
 
 .member > div {
-    padding: 10px;
+  text-align: center;
+  padding: 10px;
 }
 
-.member > div:first-child {
-    text-align: left;
-    padding-left: 10px;
-}
-
-/* ================= STATUS ================= */
 
 .member-status {
     width: 25px;
@@ -152,7 +170,6 @@ body{
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    margin: 0 auto;
 }
 
 .member-status[data-status="active"] {
@@ -162,3 +179,4 @@ body{
 .member-status[data-status="inactive"] {
     background-color: #482E2E;
 }
+
