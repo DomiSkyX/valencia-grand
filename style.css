@@ -86,26 +86,6 @@ body{
     transform: translate(-50%, -50%);
 }
 
-
-
-.categories {
-    background: linear-gradient(to bottom, #2E3448, #48506D);
-    color: #ffffff;
-    width: 90%;
-    height: 120px;
-    border-radius: 30px;
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;                /* neu */
-    justify-content: space-between; /* gleichmäßige Abstände */
-    align-items: center;           /* vertikal zentriert */
-    padding: 0 20px;               /* etwas Innenabstand */
-    margin-top: 10px;
-}
-
 .category {
     width: 200px;
     height: 100px;
@@ -164,7 +144,10 @@ body{
 }
 
 
-
+.member > div {
+  text-align: center;
+  padding: 10px;
+}
 
 
 .member-status {
