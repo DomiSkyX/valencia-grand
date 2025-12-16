@@ -53,7 +53,7 @@ document.addEventListener('click', async e => {
 
   await supabase
     .from('member_list')
-    .update({ status: newStatus })
+    .update({ status: newStatus === 'active' })
     .eq('id', id)
 })
 
