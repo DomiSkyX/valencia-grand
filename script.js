@@ -16,22 +16,13 @@ async function loadMembers() {
     return
   }
 
-  // ✅ Custom rank order (higher = higher rank)
-  const rankOrder = {
-    Boss: 10,
-    Vize: 9,
-    Einsatzleitung: 7
-  }
-
-  // ✅ Sort by custom rank (descending)
-  data.sort((a, b) => {
-    const rankA = rankOrder[a.rank] ?? 0
-    const rankB = rankOrder[b.rank] ?? 0
-    return rankB - rankA
-  })
+  const rankOrder = { Boss: 10, Vize: 9, Einsatzleitung: 7 }
+  data.sort((a, b) => (rankOrder[b.rank] ?? 0) - (rankOrder[a.rank] ?? 0))
 
   const container = document.querySelector('.member-list')
   container.innerHTML = ''
+
+  const statusToString = (status) => (status ? 'active' : 'inactive')
 
   data.forEach(member => {
     const div = document.createElement('div')
@@ -41,15 +32,15 @@ async function loadMembers() {
       <div>${member.name}</div>
       <div>${member.id}</div>
       <div>${member.rank}</div>
-      <div class="member-status"
+      <div class="member-status ${statusToString(member.status)}"
            data-id="${member.id}"
-           data-status="${member.status}">
+           data-status="${statusToString(member.status)}">
       </div>
     `
-
     container.appendChild(div)
   })
 }
+
 
 document.addEventListener('click', async e => {
   if (!e.target.classList.contains('member-status')) return
