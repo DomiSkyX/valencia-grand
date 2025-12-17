@@ -191,3 +191,10 @@ body{
 }
 
 
+.login-form{
+    background-color: #ffffff;
+    width: 200px;
+    height: 750px;
+    border: 1px solid;
+    border-radius: 30px;
+}
