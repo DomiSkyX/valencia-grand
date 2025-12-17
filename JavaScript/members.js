@@ -1,12 +1,6 @@
-const supabaseUrl = 'https://hhpttjceaekmqejzgpcq.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhocHR0amNlYWVrbXFlanpncGNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1NTE3MjYsImV4cCI6MjA4MTEyNzcyNn0.w0sbYO4K5gr1JTNeBtVFqfaU34LaLHeyLT8k-LwRTXE'
+import { supabase } from './supabase.js'
 
-const supabase = window.supabase.createClient(
-  supabaseUrl,
-  supabaseKey
-)
-
-async function loadMembers() {
+export async function loadMembers() {
   const { data, error } = await supabase
     .from('member_list')
     .select('id, name, rank, status')
@@ -41,20 +35,22 @@ async function loadMembers() {
   })
 }
 
+export async function toggleMemberStatus(id, newStatus) {
+  document.addEventListener('click', async e => {
+    if (!e.target.classList.contains('member-status')) return
 
-document.addEventListener('click', async e => {
-  if (!e.target.classList.contains('member-status')) return
+    const id = e.target.dataset.id
+    const newStatus =
+      e.target.dataset.status === 'active' ? 'inactive' : 'active'
 
-  const id = e.target.dataset.id
-  const newStatus =
-    e.target.dataset.status === 'active' ? 'inactive' : 'active'
+    e.target.dataset.status = newStatus
 
-  e.target.dataset.status = newStatus
+    await supabase
+      .from('member_list')
+      .update({ status: newStatus === 'active' })
+      .eq('id', id)
+  })
+}
 
-  await supabase
-    .from('member_list')
-    .update({ status: newStatus === 'active' })
-    .eq('id', id)
-})
-
+toggleMemberStatus()
 loadMembers()
