@@ -195,10 +195,14 @@ body{
 
 .login-form{
     background-color: #ffffff;
-    margin-top: 40%;
-    margin-bottom: 40%;
-    margin-left: 40%;
-    margin-right: 40%;
+    width: 30%;
+    height: 60%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
     border: 1px solid;
     border-radius: 30px;
 }
