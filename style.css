@@ -213,6 +213,7 @@ body{
     margin-top: 20px;
     transform: translateX(-50%);
 }
+
 .login-form input{
     position: absolute;
     left: 50%;
@@ -224,6 +225,16 @@ body{
     height: 20%;
     border: 1px solid;
     border-radius: 20px;
+
+    font-size: 75px;
+    justify-items: center;
+}
+
+.login-form input ::placeholder{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
 }
 
 .login-form button{
