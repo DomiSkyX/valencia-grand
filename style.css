@@ -213,15 +213,6 @@ body{
     margin-top: 20px;
     transform: translateX(-50%);
 }
-
-.login-form label{
-    position: absolute;
-    left: 39%;
-    top: 41%;
-    margin-top: 20px;
-    transform: translate(-50%, -50%);
-}
-
 .login-form input{
     position: absolute;
     left: 50%;
@@ -229,8 +220,10 @@ body{
     margin-top: 20px;
     transform: translate(-50%, -50%);
 
-    width: 50%;
-    height: 5%;
+    width: 70%;
+    height: 20%;
+    border: 1px solid;
+    border-radius: 20px;
 }
 
 .login-form button{
