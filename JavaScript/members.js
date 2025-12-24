@@ -51,6 +51,3 @@ export async function toggleMemberStatus(id, newStatus) {
       .eq('id', id)
   })
 }
-
-toggleMemberStatus()
-loadMembers()
