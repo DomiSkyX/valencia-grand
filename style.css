@@ -243,4 +243,15 @@ body{
     top: 70%;
     margin-top: 20px;
     transform: translate(-50%, -50%);
+
+    height: 10%;
+    width: 70%;
+
+    border: none;
+    border-radius: 30px;
+    background: #7ec0ff;
+
+    font-size: 250%;
+    font-weight: bold;
+    color: white;
 }
