@@ -1,4 +1,4 @@
-import { supabase } from './JavaScript/supabase.js'
+import { supabase } from './supabase.js'
 
 const form = document.querySelector('#loginForm')
 const input = document.querySelector('#loginCode')
