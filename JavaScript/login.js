@@ -7,9 +7,9 @@ const input = document.querySelector('#loginCode')
 form.addEventListener('submit', async e => {
   e.preventDefault()
 
-  const code = Number(input.value) // website code (numeric)
+  const code = Number(input.value) // Website code (numeric)
 
-  // 1️⃣ Check whitelist: member_list
+  // 1️⃣ Check member_list for valid code
   const { data: member, error } = await supabase
     .from('member_list')
     .select('code, name')
@@ -21,7 +21,7 @@ form.addEventListener('submit', async e => {
     return
   }
 
-  // 2️⃣ Record login in logins table
+  // 2️⃣ Insert login record into logins table
   const { error: loginError } = await supabase
     .from('logins')
     .insert({
@@ -31,7 +31,7 @@ form.addEventListener('submit', async e => {
 
   if (loginError) {
     console.error(loginError)
-    alert('Login failed')
+    alert('Failed to record login')
     return
   }
 
