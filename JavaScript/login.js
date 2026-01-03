@@ -8,7 +8,6 @@ form.addEventListener('submit', async e => {
 
   const code = Number(input.value)
 
-  // 1️⃣ Find member by code
   const { data: member, error } = await supabase
     .from('member_list')
     .select('id, name, status')
@@ -20,7 +19,6 @@ form.addEventListener('submit', async e => {
     return
   }
 
-  // 2️⃣ Insert login record
   const { error: loginError } = await supabase
     .from('logins')
     .insert({
@@ -34,6 +32,12 @@ form.addEventListener('submit', async e => {
     return
   }
 
-  // 4️⃣ Redirect to home page
+  // ✅ SAVE LOGIN SESSION
+  localStorage.setItem('loggedInUser', JSON.stringify({
+    id: member.id,
+    name: member.name
+  }))
+
+  // ✅ REDIRECT
   window.location.href = 'https://domiskyx.github.io/valencia-grand/home'
 })

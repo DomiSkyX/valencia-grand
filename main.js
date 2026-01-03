@@ -1,7 +1,14 @@
 import { loadMembers, toggleMemberStatus } from './JavaScript/members.js'
 
 
-document.addEventListener('DOMContentLoaded', loadMembers)
+document.addEventListener('DOMContentLoaded', () => {
+  const user = localStorage.getItem('loggedInUser')
+
+  if (!user) {
+    window.location.href = 'https://domiskyx.github.io/valencia-grand/login.html'
+  }
+})
+
 
 document.addEventListener('click', async e => {
   if (!e.target.classList.contains('member-status')) return
