@@ -3,31 +3,29 @@ import { supabase } from './supabase.js'
 const form = document.querySelector('#loginForm')
 const input = document.querySelector('#loginCode')
 
+// ===== LOGIN FORM =====
 form.addEventListener('submit', async e => {
   e.preventDefault()
 
-  // ✅ Keep code as string to match Supabase column type
-  const code = input.value.trim()
+  const code = Number(input.value) // website code (numeric)
 
-  // ✅ Lookup member
+  // 1️⃣ Check whitelist: member_list
   const { data: member, error } = await supabase
-    .from('logins')
-    .select('id, name')
-    .eq('id', code)
+    .from('member_list')
+    .select('code, name')
+    .eq('code', code)
     .single()
-
-  console.log({ member, error }) // debug: see response
 
   if (error || !member) {
     alert('Invalid code')
     return
   }
 
-  // ✅ Insert login record
+  // 2️⃣ Record login in logins table
   const { error: loginError } = await supabase
     .from('logins')
     .insert({
-      code: member.id,
+      code: member.code,
       name: member.name
     })
 
@@ -37,12 +35,12 @@ form.addEventListener('submit', async e => {
     return
   }
 
-  // ✅ Save session
+  // 3️⃣ Save session
   localStorage.setItem('loggedInUser', JSON.stringify({
-    id: member.id,
+    code: member.code,
     name: member.name
   }))
 
-  // ✅ Redirect to home
+  // 4️⃣ Redirect to home
   window.location.href = 'https://domiskyx.github.io/valencia-grand/home/'
 })
