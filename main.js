@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const user = localStorage.getItem('loggedInUser')
 
   if (!user) {
-    window.location.href = 'https://domiskyx.github.io/valencia-grand/login.html'
+    window.location.href = 'https://domiskyx.github.io/valencia-grand/index.html'
   }
 })
 
