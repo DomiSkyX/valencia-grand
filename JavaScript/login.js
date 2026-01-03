@@ -11,7 +11,7 @@ form.addEventListener('submit', async e => {
 
   // ✅ Lookup member
   const { data: member, error } = await supabase
-    .from('member_list')
+    .from('logins')
     .select('id, name')
     .eq('id', code)
     .single()
