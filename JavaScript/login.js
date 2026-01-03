@@ -10,7 +10,7 @@ form.addEventListener('submit', async e => {
 
   const { data: member, error } = await supabase
     .from('member_list')
-    .select('id, name, status')
+    .select('id, name')
     .eq('id', code)
     .single()
 
@@ -27,17 +27,15 @@ form.addEventListener('submit', async e => {
     })
 
   if (loginError) {
-    console.error(loginError)
     alert('Login failed')
     return
   }
 
-  // ✅ SAVE LOGIN SESSION
   localStorage.setItem('loggedInUser', JSON.stringify({
     id: member.id,
     name: member.name
   }))
 
-  // ✅ REDIRECT
-  window.location.href = 'https://domiskyx.github.io/valencia-grand/home'
+  // ✅ WORKING REDIRECT
+  window.location.href = 'https://domiskyx.github.io/valencia-grand/home/'
 })
