@@ -42,5 +42,5 @@ form.addEventListener('submit', async e => {
   }))
 
   // 4️⃣ Redirect to home
-  window.location.href = 'https://domiskyx.github.io/valencia-grand/home/'
+  window.location.href = 'https://domiskyx.github.io/valencia-grand/home'
 })
