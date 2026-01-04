@@ -10,7 +10,7 @@ export async function loadMembers() {
     return
   }
 
-  const rankOrder = { Boss: 10, Vize: 9, Einsatzleitung: 7 }
+  const rankOrder = { Boss: "(10) - Boss", Vize: "(9) - Vize", a: "(8) - ?", a: "(7) - ?", a: "(6) - ?", Einsatzleiter: "(5) - Einsatzleiter", a: "(4) - ?", a: "(3) - ?", Member: "(2) - Member", Neuling: "(1) - Neuling" }
   data.sort((a, b) => (rankOrder[b.rank] ?? 0) - (rankOrder[a.rank] ?? 0))
 
   const container = document.querySelector('.member-list')
