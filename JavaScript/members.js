@@ -1,5 +1,12 @@
 import { supabase } from './supabase.js'
 
+// Extract numeric rank from "(10) - Boss"
+function getRankValue(rankText) {
+  if (!rankText) return 0
+  const match = rankText.match(/\((\d+)\)/)
+  return match ? Number(match[1]) : 0
+}
+
 export async function loadMembers() {
   const { data, error } = await supabase
     .from('member_list')
@@ -10,15 +17,8 @@ export async function loadMembers() {
     return
   }
 
-  const rankOrder = { 
-    Boss: 10, 
-    Vize: 9, 
-    Einsatzleiter: 5, 
-    Member: 2, 
-    Neuling: 1 
-  }
-
-  data.sort((a, b) => (rankOrder[b.rank] ?? 0) - (rankOrder[a.rank] ?? 0))
+  // ✅ Sort by numeric rank extracted from text
+  data.sort((a, b) => getRankValue(b.rank) - getRankValue(a.rank))
 
   const container = document.querySelector('.member-list')
   container.innerHTML = ''
