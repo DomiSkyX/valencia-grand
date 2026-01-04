@@ -36,18 +36,8 @@ export async function loadMembers() {
 }
 
 export async function toggleMemberStatus(id, newStatus) {
-  document.addEventListener('click', async e => {
-    if (!e.target.classList.contains('member-status')) return
-
-    const id = e.target.dataset.id
-    const newStatus =
-      e.target.dataset.status === 'active' ? 'inactive' : 'active'
-
-    e.target.dataset.status = newStatus
-
-    await supabase
-      .from('member_list')
-      .update({ status: newStatus === 'active' })
-      .eq('id', id)
-  })
+  await supabase
+    .from('member_list')
+    .update({ status: newStatus === 'active' })
+    .eq('id', id)
 }
