@@ -1,17 +1,18 @@
 import { loadMembers, toggleMemberStatus } from './JavaScript/members.js'
 
-// Protect page
-document.addEventListener('DOMContentLoaded', () => {
+// ===== Protect page =====
+document.addEventListener('DOMContentLoaded', async () => {
   const user = localStorage.getItem('loggedInUser')
   if (!user) {
+    // Not logged in → redirect to login page
     window.location.href = 'https://domiskyx.github.io/valencia-grand/index.html'
   } else {
     // Load members once on page load
-    loadMembers()
+    await loadMembers()
   }
 })
 
-// Handle clicks on member-status toggles
+// ===== Handle clicks on member-status toggles =====
 document.addEventListener('click', async e => {
   if (!e.target.classList.contains('member-status')) return
 
@@ -26,12 +27,14 @@ document.addEventListener('click', async e => {
   await loadMembers()
 })
 
-// Load header
+// ===== Load header =====
 fetch("./components/header.html")
   .then(r => r.text())
   .then(html => document.querySelector("#header").innerHTML = html)
+  .catch(err => console.error('Failed to load header:', err))
 
-// Load footer
+// ===== Load footer =====
 fetch("./components/footer.html")
   .then(r => r.text())
   .then(html => document.querySelector("#footer").innerHTML = html)
+  .catch(err => console.error('Failed to load footer:', err))
