@@ -29,20 +29,6 @@ body{
     margin: 0px;
 }
 
-.header-btn {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 10px;
-    background-color: #2E3448;
-    border-radius: 10px;
-    width: 209px;
-    height: 53px;
-    display: inline-flex;       /* best choice */
-    align-items: center;        /* vertically center text */
-    justify-content: center;    /* horizontally center text */
-    font-size: 32px;
-}
-
 .header-btn:hover {
     background-color: #414960;
 }
@@ -65,17 +51,10 @@ body{
 
 .hero {
     width: 100%;
-<<<<<<< HEAD
     aspect-ratio: 1920 / 1000;
     background-color: #F1F1F1;
     color: #000;
     position: relative; /* keeps hero in normal flow */
-=======
-    aspect-ratio: 1920 / 1000; /* or your exact ratio */
-    z-index: -10;
-    position: absolute;
-    top: -150px;
->>>>>>> 807018a1bd4f0ada93da77c37e7527cdd0773470
 }
 
 
