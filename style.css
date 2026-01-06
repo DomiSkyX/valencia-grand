@@ -29,6 +29,20 @@ body{
     margin: 0px;
 }
 
+.header-btn {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    background-color: #2E3448;
+    border-radius: 10px;
+    width: 209px;
+    height: 53px;
+    display: inline-flex;       /* best choice */
+    align-items: center;        /* vertically center text */
+    justify-content: center;    /* horizontally center text */
+    font-size: 32px;
+}
+
 .header-btn:hover {
     background-color: #414960;
 }
@@ -55,25 +69,6 @@ body{
     background-color: #F1F1F1;
     color: #000;
     position: relative; /* keeps hero in normal flow */
-}
-
-
-.hero-btn{
-    background-color: #7490E9;
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 10px;
-    border-radius: 10px;
-    width: 209px;
-    height: 53px;
-    display: inline-flex;       /* best choice */
-    align-items: center;        /* vertically center text */
-    justify-content: center;    /* horizontally center text */
-    font-size: 32px;
-    position: absolute;
-    left: 50%;
-    top: 45%;
-    transform: translate(-50%, -50%);
 }
 
 
