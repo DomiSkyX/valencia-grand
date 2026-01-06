@@ -65,7 +65,7 @@ body{
 
 .hero {
     width: 100%;
-    aspect-ratio: 1920 / 1000;
+    aspect-ratio: 1775 / 490;
     background-color: #F1F1F1;
     color: #000;
     position: relative; /* keeps hero in normal flow */
