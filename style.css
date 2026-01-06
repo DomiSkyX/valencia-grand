@@ -63,15 +63,21 @@ body{
 
 
 
-.hero{
-    background-color: #F1F1F1;
-    color: #F1F1F1;
+.hero {
     width: 100%;
+<<<<<<< HEAD
+    aspect-ratio: 1920 / 1000;
+    background-color: #F1F1F1;
+    color: #000;
+    position: relative; /* keeps hero in normal flow */
+=======
     aspect-ratio: 1920 / 1000; /* or your exact ratio */
     z-index: -10;
     position: absolute;
     top: -150px;
+>>>>>>> 807018a1bd4f0ada93da77c37e7527cdd0773470
 }
+
 
 .hero-btn{
     background-color: #7490E9;
