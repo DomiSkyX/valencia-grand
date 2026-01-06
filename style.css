@@ -255,3 +255,8 @@ body{
     font-weight: bold;
     color: white;
 }
+
+
+
+.blue-gradient-bg{
+    background: linear-gradient(to bottom, #2E3448, #48506D);}
