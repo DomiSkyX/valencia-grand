@@ -240,4 +240,26 @@ body{
 
 
 .blue-gradient-bg{
-    background: linear-gradient(to bottom, #2E3448, #48506D);}
+    background: linear-gradient(to bottom, #2E3448, #48506D);
+}
+
+.online-list{
+    width: 40%;
+
+    position: absolute;
+    left: 0px;
+}
+
+.leitstelle{
+    width: 60%;
+    
+    position: absolute;
+    right: 0px;
+}
+
+.leitstelle-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+}
