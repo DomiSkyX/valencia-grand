@@ -243,23 +243,43 @@ body{
     background: linear-gradient(to bottom, #2E3448, #48506D);
 }
 
-.online-list{
-    width: 40%;
+.leitstelle-grid{
+    display: grid;
+    grid-template-columns: 1.5fr 4fr;
+    grid-template-rows: 1fr;
+}
 
-    position: absolute;
-    left: 0px;
+.online-list{
+    margin: 20px;
+    padding: 20px;
+    
+    border-radius: 20px;
+    box-shadow: 0 0 10px #000000;
 }
 
 .leitstelle{
-    width: 60%;
+    margin: 20px;
+    padding: 20px;
     
-    position: absolute;
-    right: 0px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #000000;
 }
 
-.leitstelle-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 10px;
+.online-list div h1{
+    color: white;
+    background: linear-gradient(to bottom, #2E3448, #48506D);
+    width: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #000000;
+}
+
+.title-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
