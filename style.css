@@ -1,4 +1,4 @@
-/* -------------------- General -------------------- */
+
 * {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
@@ -22,7 +22,7 @@ body {
     background: linear-gradient(to bottom, #2E3448, #48506D);
 }
 
-/* -------------------- Header -------------------- */
+
 .header {
     background-color: #F1F1F1;
     padding: 10px;
@@ -50,7 +50,7 @@ body {
     background-color: #414960;
 }
 
-/* -------------------- Footer -------------------- */
+
 .footer {
     background-color: #F1F1F1;
     padding: 10px;
@@ -64,8 +64,9 @@ body {
     background: linear-gradient(to bottom, #2E3448, #48506D);
     color: #ffffff; width: 90%; 
     height: 120px; border-radius: 30px; 
-    justify-content: space-between; /* gleichmäßige Abstände */ 
-    align-items: center; /* vertikal zentriert */ padding: 0 20px; /* etwas Innenabstand */ 
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
     margin-top: 10px; 
 }
 
@@ -87,7 +88,7 @@ body {
     transform: translateX(-50%); 
     display: flex; 
     flex-direction: column; 
-    align-items: center; /* <--- WICHTIG: zentriert horizontal */ 
+    align-items: center;
     gap: 10px; 
     padding: 15px; 
     margin-top: 50px; 
@@ -95,7 +96,7 @@ body {
 
 .categories, .member { 
     display: grid; 
-    grid-template-columns: 3fr 2fr 3fr 1fr; /* 👈 same columns */ 
+    grid-template-columns: 3fr 2fr 3fr 1fr;
     align-items: center; 
     text-align: center; 
     width: 90%; 
@@ -129,14 +130,14 @@ body {
     padding: 10px;
 } 
 
-/* Member rows */ .member > div:last-child { 
+.member > div:last-child { 
     display: flex; 
-    align-items: center; /* vertical center */ 
-    justify-content: center; /* horizontal center */ 
-    padding: 0; /* remove extra vertical padding */ 
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 } 
 
-/* Status dot */ .member-status { 
+.member-status { 
     width: 50px; 
     height: 50px; 
     border-radius: 50%; 
@@ -152,7 +153,7 @@ body {
     background-color: #482E2E; 
 }
 
-/* -------------------- Leitstelle Grid -------------------- */
+
 .leitstelle-grid {
     display: grid;
     grid-template-columns: 1.5fr 4fr;
@@ -160,7 +161,7 @@ body {
     margin: 20px;
 }
 
-/* -------------------- Online / Offline Section -------------------- */
+
 .online-list {
     padding: 20px;
     border-radius: 20px;
@@ -208,7 +209,6 @@ body {
     background-color: grey;
 }
 
-/* -------------------- Leitstelle Section -------------------- */
 .leitstelle {
     padding: 20px;
     border-radius: 20px;
@@ -228,7 +228,7 @@ body {
     text-align: center;
 }
 
-/* -------------------- Misc -------------------- */
+
 h1, h2, p {
     margin: 5px 0;
 }
